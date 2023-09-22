@@ -1,3 +1,14 @@
+<?php
+session_start();
+$con = new mysqli('localhost', 'root', '', 'userData');
+if (!$con) {
+    die("Connection failed");
+}
+
+$query = 'SELECT * FROM Menu';
+$result = mysqli_query($con, $query);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,70 +62,24 @@
 
     <div class="main">
         <div class="d-flex flex-wrap d-flex justify-content-center">
-            <div class="card m-5 " style="width: 18rem;">
-                <img class="card-img-top" src="Images/ikan.jpeg">
-                <div class="card-body">
-                    <h5 class="card-title">Grilled Salmon</h5>
-                    <p class="card-text">Savor the flavors of our Grilled Salmon, perfectly seasoned and cooked to perfection</p>
-                    <a href="#" class="btn btn-primary">Order</a>
+            <?php
+            while ($card = mysqli_fetch_assoc($result)) {
+                ?>
+                <div class="card m-5" style="width: 18rem;">
+                    <img class="card-img-top" src="<?php echo $card['Image']?>">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <?php echo $card['foodName']; ?>
+                        </h5>
+                        <p class="card-text">
+                            <?php echo $card['Caption'] ?>
+                        </p>
+                        <a href="#" class="btn btn-primary">Order</a>
+                    </div>
                 </div>
-            </div>
-            <div class="card m-5" style="width: 18rem;">
-                <img class="card-img-top" src="Images/kebab.jpeg">
-                <div class="card-body">
-                    <h5 class="card-title">Beef Kebab</h5>
-                    <p class="card-text">Indulge in the rich and savory taste of our Beef Kebab, served on skewers for your enjoyment</p>
-                    <a href="#" class="btn btn-primary">Order</a>
-                </div>
-            </div>
-            <div class="card m-5" style="width: 18rem;">
-                <img class="card-img-top" src="Images/meatBalls.jpeg">
-                <div class="card-body">
-                    <h5 class="card-title">Meat Balls</h5>
-                    <p class="card-text">Treat yourself to our delicious Meat Balls, a mouthwatering delight that's sure to satisfy your cravings</p>
-                    <a href="#" class="btn btn-primary">Order</a>
-                </div>
-            </div>
-            <div class="card m-5" style="width: 18rem;">
-                <img class="card-img-top" src="Images/salad.jpeg">
-                <div class="card-body">
-                    <h5 class="card-title">Fresh Salad</h5>
-                    <p class="card-text">Relish the freshness of our Fresh Salad, a crisp and healthy addition to your meal</p>
-                    <a href="#" class="btn btn-primary">Order</a>
-                </div>
-            </div>
-            <div class="card m-5" style="width: 18rem;">
-                <img class="card-img-top" src="Images/esKelapa.jpeg">
-                <div class="card-body">
-                    <h5 class="card-title">Ice Coconut</h5>
-                    <p class="card-text">Cool off and relax with our Ice Coconut drink, a tropical treat that's perfect for any occasion.</p>
-                    <a href="#" class="btn btn-primary">Order</a>
-                </div>
-            </div>
-            <div class="card m-5" style="width: 18rem;">
-                <img class="card-img-top" src="Images/jusJeruk.webp">
-                <div class="card-body">
-                    <h5 class="card-title">Orange Juice</h5>
-                    <p class="card-text">Quench your thirst with our refreshing Orange Juice, a zesty and revitalizing choice</p>
-                    <a href="#" class="btn btn-primary">Order</a>
-                </div>
-            </div>
-            <div class="card m-5" style="width: 18rem;">
-                <img class="card-img-top" src="Images/tehHijau.webp">
-                <div class="card-body">
-                    <h5 class="card-title">Hot Tea</h5>
-                    <p class="card-text">Warm up with a cup of our Hot Tea, a comforting and soothing beverage.</p>
-                    <a href="#" class="btn btn-primary">Order</a>
-                </div>
-            </div>
-            <div class="card m-5" style="width: 18rem;">
-                <img class="card-img-top" src="Images/jusApel.jpeg">
-                <div class="card-body">
-                    <h5 class="card-title">Apple Juice</h5>
-                    <p class="card-text">Enjoy the sweet and tangy goodness of our Apple Juice, a delightful accompaniment to your meal</p>
-                    <a href="#" class="btn btn-primary">Order</a>
-                </div>
-            </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
 
