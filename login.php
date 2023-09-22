@@ -8,7 +8,7 @@ session_start();
         if(!empty($name) && !empty($password) && !is_numeric($name)){
             $query = "SELECT * FROM nonAdmin where name = '$name' limit 1";
             $result = mysqli_query($con, $query);
-            header('location:Page/loginPage.php');
+            header('location:loginPage.php');
             if($result && mysqli_num_rows($result) > 0){
                 $userData = mysqli_fetch_assoc($result);
                 
@@ -17,19 +17,19 @@ session_start();
                     header('location:index.php');
                     die();
                 }
-            header('location:Page/loginPage.php?warning=Wrong name or password');
+            header('location:loginPage.php?warning=Wrong name or password');
             exit();
             }
-            header('location:Page/loginPage.php?warning=Wrong name or password');
+            header('location:loginPage.php?warning=Wrong name or password');
             exit();
             
         }
         else if(empty($name)){
-            header('location:Page/loginPage.php?warning=Name is required!');
+            header('location:loginPage.php?warning=Name is required!');
             exit(); 
         }
         else if(empty($password)){
-            header('location:Page/loginPage.php?warning=Password is required!');
+            header('location:loginPage.php?warning=Password is required!');
             exit();
         }
     }

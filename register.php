@@ -12,15 +12,15 @@
             header('location:Page/registerPage.php?success=Success!');
         }
         else if(empty($name)){
-            header('location:Page/registerPage.php?error=Name is required!');
+            header('location:registerPage.php?error=Name is required!');
             exit();
         }
         else if(empty($address)){
-            header('location:Page/registerPage.php?error=Address is required!');
+            header('location:registerPage.php?error=Address is required!');
             exit();
         }
         else if(empty($password)){
-            header('location:Page/registerPage.php?error=Password is required!');
+            header('location:registerPage.php?error=Password is required!');
             exit(); 
         }
     }
