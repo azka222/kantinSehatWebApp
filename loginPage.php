@@ -18,7 +18,7 @@
                 <img src="Images/kantin.jpeg" class="img-fluid" alt="Responsive image">
             </div>
             <!-- Login Form -->
-            <form action="Auth/login.php" method="post">
+            <form action="login.php" method="post">
                 <?php if (isset($_GET['warning'])) { ?>
                     <div class="alert alert-warning" role="alert">
                         <a>
