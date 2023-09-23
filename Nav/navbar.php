@@ -20,8 +20,8 @@
                         Category
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Food</a>
-                        <a class="dropdown-item" href="#">Drink</a>
+                        <a class="dropdown-item" href="../Page/foodPage.php">Food</a>
+                        <a class="dropdown-item" href="../Page/drinkPage.php">Drink</a>
 
                     </div>
                 </li>
