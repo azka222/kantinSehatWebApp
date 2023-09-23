@@ -8,30 +8,31 @@ session_start();
         if(!empty($name) && !empty($password) && !is_numeric($name)){
             $query = "SELECT * FROM nonAdmin where name = '$name' limit 1";
             $result = mysqli_query($con, $query);
-            header('location:loginPage.php');
+            header('location:../Page/loginPage.php');
             if($result && mysqli_num_rows($result) > 0){
                 $userData = mysqli_fetch_assoc($result);
                 
-                if($userData['password'] === $password){
+                $decryptPassword = password_verify($userData['password'], $hashedPassword);
+                if($decryptPassword === $password){
                     $_SESSION['id'] = $userData['id'];
-                    header('location:index.php');
+                    header('location:../Page/index.php');
                     die();
                 }
-            header('location:loginPage.php?warning=Wrong name or password');
+            header('location:../Page/loginPage.php?warning=Wrong name or password');
             exit();
             }
-            header('location:loginPage.php?warning=Wrong name or password');
+            header('location:../Page/loginPage.php?warning=Wrong name or password');
             exit();
             
         }
         else if(empty($name)){
-            header('location:loginPage.php?warning=Name is required!');
+            header('location:../Page/loginPage.php?warning=Name is required!');
             exit(); 
         }
         else if(empty($password)){
-            header('location:loginPage.php?warning=Password is required!');
+            header('location:../Page/loginPage.php?warning=Password is required!');
             exit();
         }
     }
     
-?>
+?>;
