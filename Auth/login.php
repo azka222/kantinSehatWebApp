@@ -14,6 +14,9 @@ session_start();
                 $decrypt = password_verify($password, $userData['password']);
                 if($decrypt){
                     $_SESSION['id'] = $userData['id'];
+                    if($_SESSION['id'] == 20){
+                        $_SESSION['Type'] = 'Admin';
+                    }
                     header('location:../Page/index.php');
                     die();
                 }

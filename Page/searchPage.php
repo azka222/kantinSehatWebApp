@@ -1,13 +1,14 @@
 <?php
+
 session_start();
 $con = new mysqli('localhost', 'root', '', 'userData');
 if (!$con) {
     die("Connection failed");
 }
-$drink_query = 'SELECT * FROM Drink';
-$drink_result = mysqli_query($con, $drink_query);
-?>
+$food_query = 'SELECT * FROM Food';
+$food_result = mysqli_query($con, $food_query);
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,16 +26,16 @@ $drink_result = mysqli_query($con, $drink_query);
     <div class="main">
         <div class="d-flex flex-wrap d-flex justify-content-center">
             <?php
-            while ($drink_card = mysqli_fetch_assoc($drink_result)) {
+            while ($food_card = mysqli_fetch_assoc($food_result)) {
                 ?>
                 <div class="card m-5" style="width: 18rem;">
-                    <img class="card-img-top" src="../<?php echo $drink_card['drinkImage']?>">
+                    <img class="card-img-top" src="../<?php echo $food_card['Image']?>">
                     <div class="card-body">
                         <h5 class="card-title">
-                            <?php echo $drink_card['drinkName']; ?>
+                            <?php echo $food_card['foodName']; ?>
                         </h5>
                         <p class="card-text">
-                            <?php echo $drink_card['Caption'] ?>
+                            <?php echo $food_card['Caption'] ?>
                         </p>
                         <a href="#" class="btn btn-primary">Order</a>
                     </div>
