@@ -11,9 +11,8 @@ session_start();
             header('location:../Page/loginPage.php');
             if($result && mysqli_num_rows($result) > 0){
                 $userData = mysqli_fetch_assoc($result);
-                
-                $decryptPassword = password_verify($userData['password'], $hashedPassword);
-                if($decryptPassword === $password){
+                $decrypt = password_verify($password, $userData['password']);
+                if($decrypt){
                     $_SESSION['id'] = $userData['id'];
                     header('location:../Page/index.php');
                     die();
@@ -35,4 +34,4 @@ session_start();
         }
     }
     
-?>;
+?>
