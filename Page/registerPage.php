@@ -37,7 +37,7 @@
                 <input type="text" class="fadeIn second" name="name" id="name" placeholder="name">
                 <input type="text" class="fadeIn second" name="address" id="address" placeholder="address">
                 <input type="password" class="fadeIn third" id="password" name="password" placeholder="password">
-                <input type="password" class="fadeIn third" id="con_pas" name="con_pas" placeholder="password">
+                <input type="password" class="fadeIn third" id="con_pas" name="con_pas" placeholder="confirm pasword">
                 <input type="submit" class="fadeIn fourth" value="Register">
             </form>
             <div id="formFooter">

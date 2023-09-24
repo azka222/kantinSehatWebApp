@@ -1,11 +1,9 @@
 <?php
 session_start();
 if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
-    <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#editModal">Edit</a>
+    <a type="button" class="btn btn-danger" data-toggle="modal" id="<?php ?>" data-target="#editModal">Edit</a>
  
     <?php
-
-
 } else { ?>
     <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderModal">Order</a>
     <!-- Modal -->

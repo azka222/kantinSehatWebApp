@@ -54,6 +54,7 @@ session_start();
             ?>
         </ul>
 
+
     </div>
 </nav>
 <!-- End of Navbar -->
