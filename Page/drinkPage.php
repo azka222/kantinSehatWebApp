@@ -21,7 +21,6 @@ $drink_result = mysqli_query($con, $drink_query);
 
 <body>
     <?php include('../Nav/navbar.php')?>
-
     <div class="main">
         <div class="d-flex flex-wrap d-flex justify-content-center">
             <?php

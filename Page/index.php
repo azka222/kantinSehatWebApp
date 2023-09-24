@@ -15,7 +15,7 @@ session_start();
 
 <body>
     <?php include('../Nav/navbar.php') ?>
-
+    
 
 
 
@@ -25,4 +25,3 @@ session_start();
 </body>
 
 </html>
-

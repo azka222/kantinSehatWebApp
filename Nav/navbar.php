@@ -1,6 +1,11 @@
 <?php
 session_start();
 ?>
+
+<head>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
     <a class="navbar-brand" href="#">Kantin Sehat</a>
@@ -32,7 +37,7 @@ session_start();
                 <a class="nav-link" href="../Page/loginPage.php">Account</a>
             </li>
             <?php
-            if(isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
+            if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -48,10 +53,7 @@ session_start();
             }
             ?>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search" id="search">Search</button>
-        </form>
+
     </div>
 </nav>
 <!-- End of Navbar -->

@@ -5,15 +5,17 @@ session_start();
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $name = $_POST['name'];
         $password = $_POST['password'];
-        if(!empty($name) && !empty($password) && !is_numeric($name)){
+        $san_pas = filter_var($password, FILTER_SANITIZE_SPECIAL_CHARS);
+        if(!empty($name) && !empty($san_pas) && !is_numeric($name)){
             $query = "SELECT * FROM nonAdmin where name = '$name' limit 1";
             $result = mysqli_query($con, $query);
             header('location:../Page/loginPage.php');
             if($result && mysqli_num_rows($result) > 0){
                 $userData = mysqli_fetch_assoc($result);
-                $decrypt = password_verify($password, $userData['password']);
+                $decrypt = password_verify($san_pas, $userData['password']);
                 if($decrypt){
                     $_SESSION['id'] = $userData['id'];
+                    $_SESSION['name'] = $userData['name'];
                     if($userData['id'] == 20){
                         $_SESSION['Type'] = 1;
                     }

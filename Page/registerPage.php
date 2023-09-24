@@ -17,6 +17,7 @@
         <div id="boxImg">
                 <img src="../Images/kantin.jpeg" class="img-fluid" alt="Responsive image">
             </div>
+            <!-- Login Form -->
             <form action="../Auth/register.php" method="post">
                 <?php if (isset($_GET['error'])) { ?>
                     <div class="alert alert-warning" role="alert">
@@ -36,6 +37,7 @@
                 <input type="text" class="fadeIn second" name="name" id="name" placeholder="name">
                 <input type="text" class="fadeIn second" name="address" id="address" placeholder="address">
                 <input type="password" class="fadeIn third" id="password" name="password" placeholder="password">
+                <input type="password" class="fadeIn third" id="con_pas" name="con_pas" placeholder="password">
                 <input type="submit" class="fadeIn fourth" value="Register">
             </form>
             <div id="formFooter">
