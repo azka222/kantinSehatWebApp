@@ -1,16 +1,15 @@
 <?php
-
-session_start();
 $con = new mysqli('localhost', 'root', '', 'userData');
 if (!$con) {
     die("Connection failed");
 }
-
 $food_query = 'SELECT * FROM Food';
 $food_result = mysqli_query($con, $food_query);
 $drink_query = 'SELECT * FROM Drink';
 $drink_result = mysqli_query($con, $drink_query);
 ?>
+
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +23,7 @@ $drink_result = mysqli_query($con, $drink_query);
 </head>
 
 <body>
+
     <?php include('../Nav/navbar.php')?>
 
     <div class="main">
@@ -40,7 +40,7 @@ $drink_result = mysqli_query($con, $drink_query);
                         <p class="card-text">
                             <?php echo $food_card['Caption'] ?>
                         </p>
-                        <a href="#" class="btn btn-primary">Order</a>
+                        <?php include('../Modal/modal.php')?>
                     </div>
                 </div>
             <?php
@@ -58,7 +58,7 @@ $drink_result = mysqli_query($con, $drink_query);
                         <p class="card-text">
                             <?php echo $drink_card['Caption'] ?>
                         </p>
-                        <a href="#" class="btn btn-primary">Order</a>
+                        <?php include('../Modal/modal.php')?>
                     </div>
                 </div>
             <?php
@@ -73,3 +73,4 @@ $drink_result = mysqli_query($con, $drink_query);
 </body>
 
 </html>
+

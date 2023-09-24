@@ -32,16 +32,15 @@ session_start();
                 <a class="nav-link" href="../Page/loginPage.php">Login</a>
             </li>
             <?php
-            if (isset($_SESSION['Type'])) { ?>
+            if(isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Admin
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../Page/foodPage.php">Add Item</a>
-                        <a class="dropdown-item" href="../Page/drinkPage.php">Delete Item</a>
-                        <a class="dropdown-item" href="../Page/drinkPage.php">Edit Item</a>
+                        <a class="dropdown-item" href="#">Add Item</a>
+                        <a class="dropdown-item" href="#">Delete Item</a>
 
                     </div>
                 </li>
@@ -56,7 +55,3 @@ session_start();
     </div>
 </nav>
 <!-- End of Navbar -->
-
-<?php
-session_destroy();
-?>

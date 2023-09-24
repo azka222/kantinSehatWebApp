@@ -37,7 +37,7 @@ $food_result = mysqli_query($con, $food_query);
                         <p class="card-text">
                             <?php echo $food_card['Caption'] ?>
                         </p>
-                        <a href="#" class="btn btn-primary">Order</a>
+                        <?php include('../Modal/modal.php')?>
                     </div>
                 </div>
             <?php
