@@ -3,6 +3,7 @@ session_start();
     $con = new mysqli('localhost', 'root', '', 'userData');
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $allowedIds = array(20, 25, 26);
         $name = $_POST['name'];
         $password = $_POST['password'];
         $san_pas = filter_var($password, FILTER_SANITIZE_SPECIAL_CHARS);
@@ -16,7 +17,7 @@ session_start();
                 if($decrypt){
                     $_SESSION['id'] = $userData['id'];
                     $_SESSION['name'] = $userData['name'];
-                    if($userData['id'] == 20){
+                    if(in_array($userData['id'], $allowedIds)){
                         $_SESSION['Type'] = 1;
                     }
                     else{
