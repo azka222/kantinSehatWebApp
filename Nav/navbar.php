@@ -29,7 +29,7 @@ session_start();
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../Page/loginPage.php">Login</a>
+                <a class="nav-link" href="../Page/loginPage.php">Account</a>
             </li>
             <?php
             if(isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
