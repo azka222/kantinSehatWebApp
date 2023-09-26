@@ -1,11 +1,12 @@
 <?php
 session_start();
 if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
-    <a type="button" class="btn btn-danger" data-toggle="modal" id="<?php ?>" data-target="#editModal">Edit</a>
- 
+    <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#editModal">Edit</a>
+
     <?php
 } else { ?>
-    <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#orderModal">Order</a>
+    <a type="button" class="btn btn-primary"  data-toggle="modal"
+        data-target="#orderModal">Order</a>
     <!-- Modal -->
     <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -18,7 +19,7 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Your order has been added to your cart
+                    Item has been added to cart
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" data-dismiss="modal">Ok</button>

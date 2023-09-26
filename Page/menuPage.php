@@ -1,21 +1,18 @@
 <?php
+session_start();
 $con = new mysqli('localhost', 'root', '', 'userData');
 if (!$con) {
     die("Connection failed");
 }
-$food_query = 'SELECT * FROM Food';
-$food_result = mysqli_query($con, $food_query);
-$drink_query = 'SELECT * FROM Drink';
-$drink_result = mysqli_query($con, $drink_query);
+$menuQuery = "SELECT * FROM Menu";
+$menuResult = mysqli_query($con, $menuQuery);
 ?>
-
-<?php session_start();?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Document</title>
+    <title>Menu</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -29,39 +26,13 @@ $drink_result = mysqli_query($con, $drink_query);
     <div class="main">
         <div class="d-flex flex-wrap d-flex justify-content-center">
             <?php
-            while ($food_card = mysqli_fetch_assoc($food_result)) {
+            while ($menuCard = mysqli_fetch_assoc($menuResult)) {
+                $_SESSION['Name'] = $menuCard['Name'];
+                $_SESSION['Caption'] = $menuCard['Caption'];
+                $_SESSION['Img'] = $menuCard['Image'];
+                include ('../Card/card.php');
                 ?>
-                <div class="card m-5" style="width: 18rem;">
-                    <img class="card-img-top" src="../<?php echo $food_card['Image']?>">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <?php echo $food_card['foodName']; ?>
-                        </h5>
-                        <p class="card-text">
-                            <?php echo $food_card['Caption'] ?>
-                        </p>
-                        <?php include('../Modal/modal.php')?>
-                    </div>
-                </div>
-            <?php
-            }
-            ?>
-            <?php
-            while ($drink_card = mysqli_fetch_assoc($drink_result)) {
-                ?>
-                <div class="card m-5" style="width: 18rem;">
-                    <img class="card-img-top" src="../<?php echo $drink_card['drinkImage']?>">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <?php echo $drink_card['drinkName']; ?>
-                        </h5>
-                        <p class="card-text">
-                            <?php echo $drink_card['Caption'] ?>
-                        </p>
-                        <?php include('../Modal/modal.php')?>
-                    </div>
-                </div>
-            <?php
+                <?php
             }
             ?>
         </div>
