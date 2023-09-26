@@ -15,7 +15,7 @@ session_start();
                 $userData = mysqli_fetch_assoc($result);
                 $decrypt = password_verify($san_pas, $userData['password']);
                 if($decrypt){
-                    $_SESSION['id'] = $userData['id'];
+                    $_SESSION['idUser'] = $userData['id'];
                     $_SESSION['name'] = $userData['name'];
                     if(in_array($userData['id'], $allowedIds)){
                         $_SESSION['Type'] = 1;

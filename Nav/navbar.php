@@ -33,9 +33,22 @@ session_start();
 
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../Page/loginPage.php">Account</a>
-            </li>
+            <?php
+            if (!isset($_SESSION['idUser'])) { ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Page/loginPage.php">Login</a>
+                </li>
+                <?php
+            } else { 
+                unset($_SESSION['idUser']);
+                ?>
+                 <li class="nav-item">
+                    <a class="nav-link" href="../Page/index.php">Logout</a>
+                </li>
+                <?php
+                session_destroy();
+            }
+            ?>
             <?php
             if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
                 <li class="nav-item dropdown">
@@ -53,6 +66,10 @@ session_start();
             }
             ?>
         </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search" id="search">Search</button>
+        </form>
 
 
     </div>
