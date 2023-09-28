@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <head>
     <link rel="stylesheet" href="../CSS/style.css">
 </head>
@@ -39,14 +39,13 @@ session_start();
                     <a class="nav-link" href="../Page/loginPage.php">Login</a>
                 </li>
                 <?php
-            } else { 
-                unset($_SESSION['idUser']);
+            } else {
                 ?>
-                 <li class="nav-item">
-                    <a class="nav-link" href="../Page/index.php">Logout</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Page/loginPage.php">Logout</a>
                 </li>
                 <?php
-                session_destroy();
+
             }
             ?>
             <?php

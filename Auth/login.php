@@ -1,7 +1,7 @@
 <?php
 session_start();
     $con = new mysqli('localhost', 'root', '', 'userData');
-
+    
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $allowedIds = array(20, 25, 26);
         $name = $_POST['name'];
