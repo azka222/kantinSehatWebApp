@@ -62,7 +62,7 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
                 </div>
                 <div class="modal-body">
                     <p id="modalMessage">
-                        <?php echo $_SESSION['Name'] ?> has been added to cart
+                        <?php echo $_SESSION['Name'] ?> has been added to cart!
                     </p>
                 </div>
                 <div class="modal-footer">

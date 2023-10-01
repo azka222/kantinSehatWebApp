@@ -20,9 +20,12 @@ $menuResult = mysqli_query($con, $menuQuery);
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../CSS/style.css">
 </head>
-    
+
 <body>
+    <!-- Navbar -->
     <?php include('../Nav/navbar.php') ?>
+
+    <!-- Card for showing food -->
     <div class="main">
         <div class="d-flex flex-wrap d-flex justify-content-center">
             <?php

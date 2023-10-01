@@ -23,9 +23,10 @@ $menuResult = mysqli_query($con, $menuQuery);
 </head>
 
 <body>
-
+    <!-- Navbar -->
     <?php include('../Nav/navbar.php')?>
 
+    <!-- Card for showing food -->
     <div class="main">
         <div class="d-flex flex-wrap d-flex justify-content-center">
             <?php
