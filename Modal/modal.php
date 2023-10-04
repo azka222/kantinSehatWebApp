@@ -21,20 +21,20 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
                 </div>
                 <div class="modal-body">
                     <!-- Form -->
-                    <form action="../Logic/editItem.php" method="post">
+                    <form method="post">
                         <!-- Form that must be filled in -->
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control" id="editName" name="editName" placeholder="Name">
+                            <input type="text" class="form-control" id="editName" name="<?php echo $_SESSION['Name'] ?>" placeholder="Name">
                         </div>
                         <div class="form-group">
                             <label>Caption</label>
-                            <input type="text" class="form-control" id="editCaption" name="editCaption"
+                            <input type="text" class="form-control" id="editCaption" name="<?php echo $_SESSION['Caption'] ?>"
                                 placeholder="Caption">
                         </div>
                         <div class="form-group">
                             <label>Stock</label>
-                            <input type="text" class="form-control" id="editStock" name="editStock" placeholder="Stock">
+                            <input type="text" class="form-control" id="editStock" name="<?php echo $_SESSION['qtt'] ?>" placeholder="Stock">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

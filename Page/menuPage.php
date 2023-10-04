@@ -32,6 +32,7 @@ $menuResult = mysqli_query($con, $menuQuery);
             <?php
             while ($menuCard = mysqli_fetch_assoc($menuResult)) {
                 $_SESSION['id'] = $menuCard['id'];
+                $_SESSION['stock'] = $menuCard['qtt'];
                 $_SESSION['Name'] = $menuCard['Name'];
                 $_SESSION['Caption'] = $menuCard['Caption'];
                 $_SESSION['Img'] = $menuCard['Image'];
