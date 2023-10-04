@@ -22,15 +22,15 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
                     <form>
                         <div class="form-group">
                             <label>Name</label>
-                            <input type="text" class="form-control" id="#" placeholder="Name">
+                            <input type="text" class="form-control" id="editName" name="editName" placeholder="Name">
                         </div>
                         <div class="form-group">
                             <label>Caption</label>
-                            <input type="text" class="form-control" id="#" placeholder="Caption">
+                            <input type="text" class="form-control" id="editCaption" name="editCaption" placeholder="Caption">
                         </div>
                         <div class="form-group">
                             <label>Stock</label>
-                            <input type="text" class="form-control" id="#" placeholder="Stock">
+                            <input type="text" class="form-control" id="editStock" name="editStock" placeholder="Stock">
                         </div>
                     </form>
                 </div>
