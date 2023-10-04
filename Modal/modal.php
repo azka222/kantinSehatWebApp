@@ -11,6 +11,7 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
+                    <!-- Title for selected food -->
                     <h5 class="modal-title" id="exampleModalLongTitle">
                         <?php echo $_SESSION['Name'] ?>
                     </h5>
@@ -19,24 +20,28 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <!-- Form -->
+                    <form action="../Logic/editItem.php" method="post">
+                        <!-- Form that must be filled in -->
                         <div class="form-group">
                             <label>Name</label>
                             <input type="text" class="form-control" id="editName" name="editName" placeholder="Name">
                         </div>
                         <div class="form-group">
                             <label>Caption</label>
-                            <input type="text" class="form-control" id="editCaption" name="editCaption" placeholder="Caption">
+                            <input type="text" class="form-control" id="editCaption" name="editCaption"
+                                placeholder="Caption">
                         </div>
                         <div class="form-group">
                             <label>Stock</label>
                             <input type="text" class="form-control" id="editStock" name="editStock" placeholder="Stock">
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="submit"  data-Name="<?php echo $_SESSION['Name']?>" class="btn btn-primary"></input>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer">  
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <!-- End of form -->
                 </div>
             </div>
         </div>
