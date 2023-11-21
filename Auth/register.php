@@ -1,6 +1,7 @@
 <?php
-    $con = new mysqli('localhost', 'root', '', 'userData');
-    if(!$con){
+    include_once "./connection.php";
+
+    if(!$conn){
         die();
     }
     if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -22,7 +23,7 @@
             else{
                 $hashed = password_hash($san_pas, PASSWORD_DEFAULT);
                 $query = "INSERT INTO nonAdmin (name, address, password) VALUES('$name', '$address', '$hashed')";
-                mysqli_query($con, $query);
+                mysqli_query($conn, $query);
                 header('location:../Page/registerPage.php');
                 header('location:../Page/registerPage.php?success=Success!');
                 

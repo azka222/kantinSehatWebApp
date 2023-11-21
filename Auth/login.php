@@ -1,6 +1,7 @@
 <?php
+include_once "./connection.php";
+
 session_start();
-    $con = new mysqli('localhost', 'root', '', 'userData');
     
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $allowedIds = array(20, 25, 26);
@@ -9,7 +10,7 @@ session_start();
         $san_pas = filter_var($password, FILTER_SANITIZE_SPECIAL_CHARS);
         if(!empty($name) && !empty($san_pas) && !is_numeric($name)){
             $query = "SELECT * FROM nonAdmin where name = '$name' limit 1";
-            $result = mysqli_query($con, $query);
+            $result = mysqli_query($conn, $query);
             header('location:../Page/loginPage.php');
             if($result && mysqli_num_rows($result) > 0){
                 $userData = mysqli_fetch_assoc($result);
