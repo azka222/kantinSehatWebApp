@@ -10,10 +10,10 @@ session_start();
         $san_pas = filter_var($password, FILTER_SANITIZE_SPECIAL_CHARS);
         if(!empty($name) && !empty($san_pas) && !is_numeric($name)){
             $query = "SELECT * FROM nonAdmin where name = '$name' limit 1";
-            $result = mysqli_query($conn, $query);
+            $result = $conn->query($query);
             header('location:../Page/loginPage.php');
-            if($result && mysqli_num_rows($result) > 0){
-                $userData = mysqli_fetch_assoc($result);
+            if($result->num_rows === 1){
+                $userData = $result->fetch_assoc();
                 $decrypt = password_verify($san_pas, $userData['password']);
                 if($decrypt){
                     $_SESSION['idUser'] = $userData['id'];
@@ -46,7 +46,7 @@ session_start();
     
 ?>
 
-$query = "SELECT * FROM Users WHERE username = ? AND password = ?;";
+<!-- $query = "SELECT * FROM Users WHERE username = ? AND password = ?;";
 $stmt = $db->prepare($query);
 $stmt->bind_param("ss", $username, $password);
 $stmt->execute();
@@ -61,4 +61,4 @@ $hash = password_hash($password, PASSWORD_DEFAULT);
 
 $sanitize = filter_var($password, FILTER_SANITIZE_SPECIAL_CHARS);
 
-$sanitize = htmlspecialchars($password)
+$sanitize = htmlspecialchars($password) -->

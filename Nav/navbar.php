@@ -1,6 +1,6 @@
-<?php
+<!-- <?php
 session_start();
-?>
+?>  -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <head>
     <link rel="stylesheet" href="../CSS/style.css">

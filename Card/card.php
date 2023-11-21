@@ -1,4 +1,4 @@
-<?php session_start();?>
+<!-- <?php session_start();?> -->
 <div class="card m-5" style="width: 18rem;">
     <img class="card-img-top" src="../<?php echo $_SESSION['Img'] ?>">
     <div class="card-body">

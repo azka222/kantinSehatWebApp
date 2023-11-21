@@ -1,11 +1,11 @@
 <?php
-session_start();
-$con = new mysqli('localhost', 'root', '', 'userData');
-if (!$con) {
+include_once "../Auth/connection.php";
+// session_start();
+if (!$conn) {
     die("Connection failed");
 }
 $menuQuery = "SELECT * FROM Menu";
-$menuResult = mysqli_query($con, $menuQuery);
+$menuResult = mysqli_query($conn, $menuQuery);
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +38,7 @@ $menuResult = mysqli_query($con, $menuQuery);
                 $_SESSION['Img'] = $menuCard['Image'];
                 include ('../Card/card.php');
                 ?>
+
                 <?php
             }
             ?>

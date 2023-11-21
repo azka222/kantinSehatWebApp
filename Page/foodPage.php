@@ -1,12 +1,11 @@
 <?php
-
-session_start();
-$con = new mysqli('localhost', 'root', '', 'userData');
-if (!$con) {
+include_once "../Auth/connection.php";
+// session_start();
+if (!$conn) {
     die("Connection failed");
 }
 $menuQuery = "SELECT * FROM Menu WHERE menuType = 'Food'";
-$menuResult = mysqli_query($con, $menuQuery);
+$menuResult = mysqli_query($conn, $menuQuery);
 ?>
 
 
