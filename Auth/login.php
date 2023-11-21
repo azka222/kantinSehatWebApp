@@ -44,3 +44,20 @@ session_start();
     }
     
 ?>
+
+$query = "SELECT * FROM Users WHERE username = ? AND password = ?;";
+$stmt = $db->prepare($query);
+$stmt->bind_param("ss", $username, $password);
+$stmt->execute();
+$result = $stmt->get_result();
+$db->close();
+
+if($result->mysqli_num_rows == 1){
+    $row = result->fetch_assoc();
+}
+
+$hash = password_hash($password, PASSWORD_DEFAULT);
+
+$sanitize = filter_var($password, FILTER_SANITIZE_SPECIAL_CHARS);
+
+$sanitize = htmlspecialchars($password)

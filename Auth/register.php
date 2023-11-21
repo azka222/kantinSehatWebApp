@@ -25,6 +25,7 @@
                 mysqli_query($con, $query);
                 header('location:../Page/registerPage.php');
                 header('location:../Page/registerPage.php?success=Success!');
+                
             }
    
         }
