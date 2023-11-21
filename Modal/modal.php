@@ -1,12 +1,13 @@
 <?php
-session_start();
+// session_start();
 if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
     <!-- Button for Admin -->
     <a Edit type="button" class="btn btn-danger" data-toggle="modal" data-target="#editModal_<?php echo $_SESSION['id']; ?>"
         data-Name="<?php echo $_SESSION['Name'] ?>">Edit</a>
-
+    <a Edit type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal_<?php echo $_SESSION['id']; ?>"
+        data-Name="<?php echo $_SESSION['Name'] ?>">Delete</a>
     <!-- Modal for Admin -->
-    <div class="modal fade" id="editModal_<?php echo $_SESSION['id']; ?>" tabindex="-1" role="dialog"
+    <div class="modal fade" id="editModal_<?php echo $_SESSION['id']; ?>"  tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -21,20 +22,21 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
                 </div>
                 <div class="modal-body">
                     <!-- Form -->
-                    <form method="post">
+                    <form method="post" action="../Logic/editItem.php">
+                        <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
                         <!-- Form that must be filled in -->
                         <div class="form-group">
+                            
                             <label>Name</label>
-                            <input type="text" class="form-control" id="editName" name="<?php echo $_SESSION['Name'] ?>" placeholder="Name">
+                            <input type="text" class="form-control" id="editName" name="editName" placeholder="Name">
                         </div>
                         <div class="form-group">
                             <label>Caption</label>
-                            <input type="text" class="form-control" id="editCaption" name="<?php echo $_SESSION['Caption'] ?>"
-                                placeholder="Caption">
+                            <input type="text" class="form-control" id="editCaption" name="editCaption" placeholder="Caption">
                         </div>
                         <div class="form-group">
                             <label>Stock</label>
-                            <input type="text" class="form-control" id="editStock" name="<?php echo $_SESSION['qtt'] ?>" placeholder="Stock">
+                            <input type="text" class="form-control" id="editStock" name="editStock" placeholder="Stock">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -46,6 +48,8 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
             </div>
         </div>
     </div>
+
+    <div clas="modal "></div>
 
 
     <?php
