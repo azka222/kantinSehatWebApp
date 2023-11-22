@@ -4,6 +4,7 @@ include_once "../Auth/connection.php";
 
 $menuQuery = "SELECT * FROM Menu";
 $menuResult = mysqli_query($conn, $menuQuery);
+
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +24,8 @@ $menuResult = mysqli_query($conn, $menuQuery);
 <body>
     <!-- Navbar -->
     <?php include('../Nav/navbar.php')?>
+
+
 
     <!-- Card for showing food -->
     <div class="main">

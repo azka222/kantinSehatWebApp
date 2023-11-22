@@ -50,15 +50,20 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
             </div>
         </div>
     </div>
-<!-- 
+
     <div class="button-delete btn">
-    <a type="button" class="btn btn-danger" id="Delete" name="Delete"  
-    href="modal.php?delete=<?php echo $_SESSION['id']; ?>" onclick="return confirm('Hapus menu ini?');">Delete</a>
-    </div> -->
+        <form action="../Logic/deleteItem.php" method="post" onsubmit="return confirm('Hapus menu ini?');">
+            <input type="hidden" name="delete" value="<?php echo $_SESSION['id']; ?>">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+
+
+
 
 
     <?php
-} else { ?>
+} else if((isset($_SESSION['Type']) && $_SESSION['Type'] == 2)){ ?>
     <!-- Button for User -->
     <a type="button" class="btn btn-primary" data-toggle="modal" data-Name="<?php echo $_SESSION['Name'] ?>"
         data-target="#orderModal_<?php echo $_SESSION['id']; ?>">Order</a>
@@ -76,7 +81,7 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
                 </div>
                 <div class="modal-body">
                     <p id="modalMessage">
-                        <?php echo $_SESSION['Name'] ?> has been added to cart!
+                        <!-- <?php echo $_SESSION['Name'] ?> has been added to cart! -->
                     </p>
                 </div>
                 <div class="modal-footer">
