@@ -1,9 +1,7 @@
 <?php
 include_once "../Auth/connection.php";
 // session_start();
-if (!$conn) {
-    die("Connection failed");
-}
+
 $menuQuery = "SELECT * FROM Menu WHERE menuType = 'Food'";
 $menuResult = mysqli_query($conn, $menuQuery);
 ?>

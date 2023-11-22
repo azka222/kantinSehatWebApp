@@ -1,10 +1,6 @@
 <?php
     include_once "./connection.php";
 
-    if(!$conn){
-        die();
-    }
-
     if($_SERVER['REQUEST_METHOD'] == "POST"){
         $name = $_POST['name'];
         $address = $_POST['address'];

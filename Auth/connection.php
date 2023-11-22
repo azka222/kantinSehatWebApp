@@ -6,4 +6,8 @@
         $config['password'],
         $config['database']
     );
+
+    if (!$conn) {
+        die("Connection failed");
+    }
 ?>

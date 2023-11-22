@@ -4,8 +4,7 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
     <!-- Button for Admin -->
     <a Edit type="button" class="btn btn-danger" data-toggle="modal" data-target="#editModal_<?php echo $_SESSION['id']; ?>"
         data-Name="<?php echo $_SESSION['Name'] ?>">Edit</a>
-    <a Edit type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal_<?php echo $_SESSION['id']; ?>"
-        data-Name="<?php echo $_SESSION['Name'] ?>">Delete</a>
+    
     <!-- Modal for Admin -->
     <div class="modal fade" id="editModal_<?php echo $_SESSION['id']; ?>"  tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -23,25 +22,29 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
                 <div class="modal-body">
                     <!-- Form -->
                     <form method="post" action="../Logic/editItem.php">
-                        <input type="hidden" name="id" value="<?php echo $_SESSION['id']; ?>">
+                        <input type="hidden" name="idProduct" value="<?php echo $_SESSION['id']; ?>">
+                        <input type="hidden" name="idProductName" value="<?php echo $_SESSION['Name']; ?>">
+                        <input type="hidden" name="idProductCaption" value="<?php echo $_SESSION['Caption']; ?>">
                         <!-- Form that must be filled in -->
                         <div class="form-group">
                             
-                            <label>Name</label>
+                            <label>Name (optional)</label>
                             <input type="text" class="form-control" id="editName" name="editName" placeholder="Name">
                         </div>
                         <div class="form-group">
-                            <label>Caption</label>
+                            <label>Caption (optional)</label>
                             <input type="text" class="form-control" id="editCaption" name="editCaption" placeholder="Caption">
                         </div>
                         <div class="form-group">
                             <label>Stock</label>
-                            <input type="text" class="form-control" id="editStock" name="editStock" placeholder="Stock">
+                            <input type="number" class="form-control" id="editStock" name="editStock" value="<?php echo $_SESSION['stock']; ?>"
+                            min ="0" max="100">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <input type="submit"  data-Name="<?php echo $_SESSION['Name']?>" class="btn btn-primary"></input>
                         </div>
+   
                     </form>
                     <!-- End of form -->
                 </div>
@@ -49,10 +52,13 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
         </div>
     </div>
 
-    <div clas="modal "></div>
+    <div class="button-delete btn">
+    <a type="button" class="btn btn-danger" id="Delete" name="Delete"  
+    href="modal.php?delete=<?php echo $_SESSION['id']; ?>" onclick="return confirm('Hapus menu ini?');">Delete</a>
+    </div>
 
 
-    <?php
+<?php
 } else { ?>
     <!-- Button for User -->
     <a type="button" class="btn btn-primary" data-toggle="modal" data-Name="<?php echo $_SESSION['Name'] ?>"
