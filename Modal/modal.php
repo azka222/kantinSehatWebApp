@@ -37,8 +37,7 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
                         </div>
                         <div class="form-group">
                             <label>Stock</label>
-                            <input type="number" class="form-control" id="editStock" name="editStock" value="<?php echo $_SESSION['stock']; ?>"
-                            min ="0" max="100">
+                            <input type="number" class="form-control" id="editStock" name="editStock" value="<?php echo $_SESSION['stock']; ?>" min ="0" max="100">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -51,14 +50,14 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
             </div>
         </div>
     </div>
-
+<!-- 
     <div class="button-delete btn">
     <a type="button" class="btn btn-danger" id="Delete" name="Delete"  
     href="modal.php?delete=<?php echo $_SESSION['id']; ?>" onclick="return confirm('Hapus menu ini?');">Delete</a>
-    </div>
+    </div> -->
 
 
-<?php
+    <?php
 } else { ?>
     <!-- Button for User -->
     <a type="button" class="btn btn-primary" data-toggle="modal" data-Name="<?php echo $_SESSION['Name'] ?>"
