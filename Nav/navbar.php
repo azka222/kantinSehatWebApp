@@ -39,7 +39,7 @@ session_start();
             } else {
                 ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="../Page/loginPage.php">Logout</a>
+                    <a class="nav-link" href="../Logic/logout.php">Logout</a>
                 </li>
                 <?php
 
