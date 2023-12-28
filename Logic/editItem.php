@@ -35,10 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (mysqli_stmt_affected_rows($stmt) == 1) {
             mysqli_stmt_close($stmt);
             mysqli_close($conn);
-            header('location:../Page/menuPage.php');
+            header('location:../Page/index.php');
             exit();
         } else {
-            header('location:../Page/menuPage.php');
+            header('location:../Page/index.php');
         }
     } else {
         echo "Error executing statement: " . mysqli_stmt_error($stmt);

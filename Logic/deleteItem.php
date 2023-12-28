@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
 
     $stmt->close();
 
-    header('location:../Page/menuPage.php');
+    header('location:../Page/index.php');
     exit();
 }
 ?>
