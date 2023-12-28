@@ -31,6 +31,7 @@ session_start();
                     else{
                         $_SESSION['Type'] = 2;
                     }
+                    unset($userData['password']);
                     header('location:../Page/index.php');
                     die();
                 }

@@ -1,11 +1,15 @@
 <?php
 include_once "./connection.php";
 
+function sanitizeInput($input){
+    return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
+}
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $name = $_POST['name'];
-    $address = $_POST['address'];
-    $password = $_POST['password'];
-    $con_pas = $_POST['con_pas'];
+    $name = sanitizeInput($_POST['name']);
+    $address = sanitizeInput($_POST['address']);
+    $password = sanitizeInput($_POST['password']);
+    $con_pas = sanitizeInput($_POST['con_pas']);
 
     // Validate input
     if (empty($name) || empty($address) || empty($password)) {
@@ -24,9 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         header('location:../Page/registerPage.php?error=Password is too short!');
         exit();
     }
-
-    $san_pas = htmlspecialchars($password);
-    $hashed = password_hash($san_pas, PASSWORD_DEFAULT);
+    
+    $hashed = password_hash($password, PASSWORD_DEFAULT);
+    
+    if(!password_verify($password,$hashed)){
+        header('location:../Page/registerPage.php?error=Internal error occured. Please try again!');
+        exit();
+    }
 
     $query = "INSERT INTO nonAdmin (name, address, password) VALUES(?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query);
