@@ -17,10 +17,7 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto" action="../Auth/login.php">
             <li class="nav-item">
-                <a class="nav-link" href="../Page/index.php">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../Page/menuPage.php">Menu</a>
+                <a class="nav-link" href="../Page/index.php">Menu<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
