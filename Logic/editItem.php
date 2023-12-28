@@ -3,7 +3,10 @@
 include_once "../Auth/connection.php";
 session_start();
 
-$_SESSION['Type'] = 1;
+// $admin_id = $_SESSION['Type'];
+// if($admin_id > 1){
+//     header('Location: Logout.php');
+// }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($_POST['editName'])) {

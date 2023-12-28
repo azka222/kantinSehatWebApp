@@ -3,6 +3,11 @@
 include_once "../Auth/connection.php";
 session_start();
 
+// $admin_id = $_SESSION['Type'];
+// if($admin_id !== 1){
+//     header('Location: Logout.php');
+// }
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
     $id = $_POST['delete'];
     
