@@ -54,6 +54,7 @@ if (isset($_SESSION['Type']) && $_SESSION['Type'] == 1) { ?>
     <div class="button-delete btn">
         <form action="../Logic/deleteItem.php" method="post" onsubmit="return confirm('Hapus menu ini?');">
             <input type="hidden" name="delete" value="<?php echo $_SESSION['id']; ?>">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>
     </div>
